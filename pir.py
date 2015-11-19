@@ -4,8 +4,8 @@ import time, sys
 # Methods
 def getPir():
   print('Checking for PIR activity. . .')
-  print (i)
   i = gpio.input(16)
+  print(i)
   if i == 0:
     print('- Activity Undetected')
     print('- Lights OFF')
