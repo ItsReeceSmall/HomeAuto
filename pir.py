@@ -28,6 +28,7 @@ gpio.setup(pirPin, gpio.IN)
 
 while True:
   main()
+  time.sleep(1)
 
 gpio.cleanup()
 sys.exit()
