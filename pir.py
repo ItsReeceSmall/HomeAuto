@@ -9,12 +9,12 @@ def getPir():
     print('- Activity Undetected')
     print('- Lights OFF')
     #lights code here
-    gpio.output(pirLight, gpio.LOW)
+    gpio.output(pirLight, gpio.HIGH)
   if i == 1:
     print('- Activity Detected')
     print('- Lights ON')
     #lights code here
-    gpio.output(pirLight, gpio.HIGH)
+    gpio.output(pirLight, gpio.LOW)
   time.sleep(0.1)
 
 def main():
