@@ -7,16 +7,16 @@ gpio.setup(pirPin, gpio.IN)
 
 def motion(pirPin):
   print('motion detected')
+  time.sleep(1)
 
-print('PIR test, ctrl + c to exit')
-time.sleep(1)
-print('Ready')
+while True:
+    i = gpio.input(16)
+    if i == 0:
+        print('No Intruders' + str(i))
+        time.sleep(0.1)
+    if i == 1:
+        print('Intruder Detected' + str(i))
+        time.sleep(0.1)
 
-try:
-  gpio.add_event_detect(pirPin,gpio.RISING,callback=MOTION)
-  while 1:
-    time.sleep(10)
-except KeyboardInterrupt:
-  print('Quit')
-  gpio.cleanup()
-  sys.exit()
+gpio.cleanup()
+sys.exit()
