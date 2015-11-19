@@ -14,7 +14,7 @@ print('Ready')
 
 try:
   gpio.add_event_detect(pirPin,gpio.RISING,callback=MOTION)
-  while:
+  while 1:
     time.sleep(10)
 except KeyboardInterrupt:
   print('Quit')
