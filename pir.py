@@ -1,5 +1,14 @@
 import RPi.GPIO as gpio
-import time, sys
+import time, sys, os
+
+# Required for temperature sensor
+os.system('modprobe w1-gpio')
+os.system('modprobe w1-therm')
+# ----------------------------
+base_dir = '/sys/bus/w1/devices/'
+device_folder = glob.glob(base_dir + '28*')[0]
+device_file = device_folder + '/w1_slave'
+# ----------------------------
 
 # Methods
 def getPir():
@@ -18,10 +27,13 @@ def getPir():
   time.sleep(0.1)
 
 #def getTemp():
+#def getDist():
 
 def main():
   getPir()
-
+  #getTemp()
+  #getDist()
+  
 gpio.setmode(gpio.BOARD)
 
 # Pins
