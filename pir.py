@@ -1,7 +1,7 @@
 import RPi.GPIO as gpio
 import time, sys, os
 
-# Required for temperature sensor
+# Required for temperature sensors
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 # ----------------------------
