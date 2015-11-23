@@ -36,7 +36,7 @@ def main():
   
 gpio.setmode(gpio.BOARD)
 
-# Pins
+# the Pins
 pirPin = 16
 pirLight = 18
 
