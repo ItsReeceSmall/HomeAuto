@@ -1,5 +1,12 @@
 import RPi.GPIO as gpio
-import time, sys, os
+import time, sys, os, glob
+
+os.system('modprobe w1-gpio')
+os.system('modprobe w1-therm')
+
+base_dir = '/sys/bus/w1/devices/'
+device_folder = golb.glob(base_dir + '28*')[0]
+device_file = device_folder + '/w1-slave'
 
 # Methods
 def getPir():
@@ -17,23 +24,13 @@ def getPir():
     gpio.output(pirLight, gpio.LOW)
   time.sleep(0.1)
 
-def getTemp():
-  tfile = open("/sys/bus/w1/devices/10-000802824e58/w1_slave") 
-  # ----------------------------
-  text = tfile.read() 
-  tfile.close()
-  secondline = text.split("\n")[1]
-  temperatureData = secondline.split(" ")[9]
-  temperature = float(temperatureData[2:])
-  temperature = (temperature / 1000)
-  print (temperature)
-  return temperature
+#def getTemp():
 
 #def getDist():
 
 def main():
   getPir()
-  getTemp()
+  #getTemp()
   #getDist()
   
 gpio.setmode(gpio.BOARD)
