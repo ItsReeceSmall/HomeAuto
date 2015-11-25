@@ -50,10 +50,10 @@ def getDist(TRIG, ECHO):
 def main():
   getPir()
   #getTemp()
-  outDist = getDist(trigL, echoL)
-  print (outDist)
-  inDist = getDist(trigR, echoR)
-  print (inDist)
+  #outDist = getDist(trigL, echoL)
+  #print (outDist)
+  #inDist = getDist(trigR, echoR)
+  #print (inDist)
   
 gpio.setmode(gpio.BOARD)
 
