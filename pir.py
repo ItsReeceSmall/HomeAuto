@@ -10,26 +10,21 @@ device_folder = golb.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1-slave'
 '''
 # Methods
-def printit():
-  threading.Timer(5.0, getPir).start()
-  print ("Hello World!")
-  print ('-------------')
+def main():
+  threading.Timer(1.0, getPir).start()
   time.sleep(1)
 
 def getPir():
   print('Checking for PIR activity. . .')
   i = gpio.input(16)
   if i == 0:
-    print('- Activity Undetected')
-    print('- Lights OFF')
-    #lights code here
-    gpio.output(pirLight, gpio.HIGH)
+    print('- Activity Undetected: Lights OFF')
+    gpio.output(pirLight, gpio.HIGH) # Turns off light
   if i == 1:
-    print('- Activity Detected')
-    print('- Lights ON')
-    #lights code here
-    gpio.output(pirLight, gpio.LOW)
-  time.sleep(0.1)
+    print('- Activity Detected: Lights ON')
+    gpio.output(pirLight, gpio.LOW)# Turns on light
+    time.sleep(5)
+  time.sleep(0.05)
 
 #def getTemp():
 
@@ -53,15 +48,14 @@ def getDist(TRIG, ECHO):
     distance = round(distance, 2)
     #print ("Distance: " + str(distance) + "cm")
     return distance
-
-def main():
-  printit()
-  #getPir()
-  #getTemp()
-  #outDist = getDist(trigL, echoL)
-  #print (outDist)
-  #inDist = getDist(trigR, echoR)
-  #print (inDist)
+    
+main()
+#getPir()
+#getTemp()
+outDist = getDist(trigL, echoL)
+print (outDist)
+inDist = getDist(trigR, echoR)
+print (inDist)
   
 gpio.setmode(gpio.BOARD)
 
@@ -76,9 +70,6 @@ echoR = 35
 # Pin Setup
 gpio.setup(pirPin, gpio.IN)
 gpio.setup(pirLight, gpio.OUT)
-
-while True:
-  main()
 
 gpio.cleanup()
 sys.exit()
