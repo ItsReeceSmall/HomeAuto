@@ -1,5 +1,6 @@
 import RPi.GPIO as gpio
-import time, sys, os, glob
+import time, sys, os, glob, threading
+import date
 '''
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -9,6 +10,10 @@ device_folder = golb.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1-slave'
 '''
 # Methods
+def printit():
+  threading.Timer(5.0, printit).start()
+  print ("Hello World!")
+
 def getPir():
   print('Checking for PIR activity. . .')
   i = gpio.input(16)
@@ -48,7 +53,8 @@ def getDist(TRIG, ECHO):
     return distance
 
 def main():
-  getPir()
+  printit()
+  #getPir()
   #getTemp()
   #outDist = getDist(trigL, echoL)
   #print (outDist)
