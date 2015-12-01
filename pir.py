@@ -49,14 +49,6 @@ def getDist(TRIG, ECHO):
     #print ("Distance: " + str(distance) + "cm")
     return distance
     
-main()
-#getPir()
-#getTemp()
-outDist = getDist(trigL, echoL)
-print (outDist)
-inDist = getDist(trigR, echoR)
-print (inDist)
-  
 gpio.setmode(gpio.BOARD)
 
 # the Pins
@@ -70,6 +62,14 @@ echoR = 35
 # Pin Setup
 gpio.setup(pirPin, gpio.IN)
 gpio.setup(pirLight, gpio.OUT)
+
+main()
+#getPir()
+#getTemp()
+outDist = getDist(trigL, echoL)
+print (outDist)
+inDist = getDist(trigR, echoR)
+print (inDist)
 
 gpio.cleanup()
 sys.exit()
