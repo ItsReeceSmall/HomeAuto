@@ -54,7 +54,7 @@ def getDist(TRIG, ECHO):
 
 def main():
   printit()
-  getPir()
+  #getPir()
   #getTemp()
   #outDist = getDist(trigL, echoL)
   #print (outDist)
