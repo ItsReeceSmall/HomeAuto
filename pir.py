@@ -11,7 +11,7 @@ device_file = device_folder + '/w1-slave'
 '''
 # Methods
 def main():
-  threading.Timer(5.0, getPir).start()
+  threading.Timer(1.0, getPir).start()
 
 def getPir():
   print('Checking for PIR activity. . .')
@@ -62,15 +62,15 @@ echoR = 35
 gpio.setup(pirPin, gpio.IN)
 gpio.setup(pirLight, gpio.OUT)
 
-main()
-#getPir()
-#getTemp()
-outDist = getDist(trigL, echoL)
-print (outDist)
-time.sleep(10)
-inDist = getDist(trigR, echoR)
-print (inDist)
-time.sleep(10)
+while True:
+  main()
+  #getPir()
+  #getTemp()
+  outDist = getDist(trigL, echoL)
+  print (outDist)
+  time.sleep(1)
+  inDist = getDist(trigR, echoR)
+  print (inDist)
 
 gpio.cleanup()
 sys.exit()
