@@ -54,7 +54,7 @@ def getDist(TRIG, ECHO):
 
 def main():
   printit()
-  #getPir()
+  getPir()
   #getTemp()
   #outDist = getDist(trigL, echoL)
   #print (outDist)
@@ -77,7 +77,6 @@ gpio.setup(pirLight, gpio.OUT)
 
 while True:
   main()
-  time.sleep(1)
 
 gpio.cleanup()
 sys.exit()
