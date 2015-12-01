@@ -11,7 +11,7 @@ device_file = device_folder + '/w1-slave'
 '''
 # Methods
 def main():
-  threading.Timer(5.0, getPir).start()
+  threading.RepeatedTimer(5.0, getPir)
 
 def getPir():
   print('Checking for PIR activity. . .')
