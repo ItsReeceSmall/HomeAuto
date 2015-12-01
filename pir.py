@@ -11,7 +11,7 @@ device_file = device_folder + '/w1-slave'
 '''
 # Methods
 def printit():
-  threading.Timer(1.0, printit).start()
+  threading.Timer(100.0, printit).start()
   print ("Hello World!")
 
 def getPir():
