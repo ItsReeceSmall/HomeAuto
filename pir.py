@@ -1,6 +1,6 @@
 import RPi.GPIO as gpio
 import time, sys, os, glob, threading
-import date
+import datetime
 '''
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
