@@ -13,6 +13,7 @@ device_file = device_folder + '/w1-slave'
 def printit():
   threading.Timer(5.0, printit).start()
   print ("Hello World!")
+  print ('-------------')
   time.sleep(1)
 
 def getPir():
