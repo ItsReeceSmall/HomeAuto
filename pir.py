@@ -10,10 +10,10 @@ device_folder = golb.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1-slave'
 '''
 # Methods
-def main():
-  threading.Timer(1.0, getPir).start()
+def main(i):
+  threading.Timer(0.1, getPir(i)).start()
 
-def getPir():
+def getPir(i):
   print('Checking for PIR activity. . .')
   i = gpio.input(16)
   if i == 0:
@@ -22,8 +22,8 @@ def getPir():
   if i == 1:
     print('- Activity Detected: Lights ON')
     gpio.output(pirLight, gpio.HIGH)# Turns on light
-    time.sleep(5)
   time.sleep(0.05)
+  return i
 
 #def getTemp():
 
@@ -63,7 +63,10 @@ gpio.setup(pirPin, gpio.IN)
 gpio.setup(pirLight, gpio.OUT)
 
 while True:
-  main()
+  i = 0
+  main(i)
+  if i = 1:
+    time.sleep(7)
   #getPir()
   #getTemp()
   outDist = getDist(trigL, echoL)
