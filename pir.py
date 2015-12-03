@@ -21,7 +21,7 @@ def getPir(i):
     gpio.output(pirLight, gpio.LOW) # Turns off light
   if i == 1:
     print('- Activity Detected: Lights ON')
-    pirLightThread = threading.Timer(5, gpio.output(pirLight, gpio.HIGH)).start()# Turns on light
+    threading.Timer(5, gpio.output(pirLight, gpio.HIGH)).start()# Turns on light
   time.sleep(0.05)
   return i
 
