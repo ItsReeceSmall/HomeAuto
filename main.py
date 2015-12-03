@@ -1,6 +1,6 @@
 import RPi.GPIO as gpio
-import time, sys, os, glob, threading
-import datetime
+import time, sys, os, glob, threading, datetime
+import pir
 '''
 os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
@@ -27,24 +27,12 @@ def main():
     program(pirPin, pirLight, trigL, echoL, trigR, echoR)
 
 def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
-  threading.Timer(1, getPir(pirPin, pirLight)).start()
+  threading.Timer(1, pir.getPir(pirPin, pirLight)).start()
   outDist = getDist(trigL, echoL)
   print (outDist)
   time.sleep(1)
   inDist = getDist(trigR, echoR)
   print (inDist)
-
-def getPir(pirPin, pirLight):
-  print('Checking for PIR activity. . .')
-  i = gpio.input(pirPin)
-  if i == 0:
-    print('- Activity Undetected: Lights OFF')
-    gpio.output(pirLight, gpio.LOW) # Turns off light
-  if i == 1:
-    print('- Activity Detected: Lights ON')
-    gpio.output(pirLight, gpio.HIGH) # Turns on light
-  time.sleep(0.05)
-  return i
 
 #def getTemp():
 
