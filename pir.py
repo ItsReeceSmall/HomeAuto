@@ -11,7 +11,12 @@ device_file = device_folder + '/w1-slave'
 '''
 # Methods
 def main(i):
-  getPir(i)
+  threading.Timer(5, getPir(i)).start()
+  outDist = getDist(trigL, echoL)
+  print (outDist)
+  time.sleep(1)
+  inDist = getDist(trigR, echoR)
+  print (inDist)
 
 def getPir(i):
   print('Checking for PIR activity. . .')
@@ -21,7 +26,7 @@ def getPir(i):
     gpio.output(pirLight, gpio.LOW) # Turns off light
   if i == 1:
     print('- Activity Detected: Lights ON')
-    threading.Timer(5, gpio.output(pirLight, gpio.HIGH)).start()# Turns on light
+    gpio.output(pirLight, gpio.HIGH) # Turns on light
   time.sleep(0.05)
   return i
 
@@ -63,17 +68,9 @@ gpio.setup(pirPin, gpio.IN)
 gpio.setup(pirLight, gpio.OUT)
 
 while True:
-  i = 0
-  main(i)
+  i = main(i, trigL, echoL, trigR, echoR)
   if i == 1:
     time.sleep(7)
-  #getPir()
-  #getTemp()
-  outDist = getDist(trigL, echoL)
-  print (outDist)
-  time.sleep(1)
-  inDist = getDist(trigR, echoR)
-  print (inDist)
 
 gpio.cleanup()
 sys.exit()
