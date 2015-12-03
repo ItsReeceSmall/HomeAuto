@@ -1,5 +1,5 @@
 import RPi.GPIO as gpio
-import time, sys, os, glob, thrreading, datetime
+import time, sys, os, glob, threading, datetime
 
 def getPir(pirPin, pirLight):
   print('Checking for PIR activity. . .')
