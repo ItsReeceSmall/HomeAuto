@@ -10,7 +10,23 @@ device_folder = golb.glob(base_dir + '28*')[0]
 device_file = device_folder + '/w1-slave'
 '''
 # Methods
-def main(i):
+def main():
+  # Board setup    
+  gpio.setmode(gpio.BOARD)
+  # the Pins
+  pirPin = 16
+  pirLight = 18
+  trigL = 38
+  echoL = 36
+  trigR = 37
+  echoR = 35
+  # Pin Setup
+  gpio.setup(pirPin, gpio.IN)
+  gpio.setup(pirLight, gpio.OUT)
+  while True:
+    program(pirPin, pirLight, trigL, echoL, trigR, echoR)
+
+def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
   threading.Timer(5, getPir(pirPin, pirLight)).start()
   outDist = getDist(trigL, echoL)
   print (outDist)
@@ -52,25 +68,8 @@ def getDist(TRIG, ECHO):
     distance = round(distance, 2)
     #print ("Distance: " + str(distance) + "cm")
     return distance
-    
-gpio.setmode(gpio.BOARD)
 
-# the Pins
-pirPin = 16
-pirLight = 18
-trigL = 38
-echoL = 36
-trigR = 37
-echoR = 35
-
-# Pin Setup
-gpio.setup(pirPin, gpio.IN)
-gpio.setup(pirLight, gpio.OUT)
-
-while True:
-   = main(pirPin, pirLight, trigL, echoL, trigR, echoR)
-  if i == 1:
-    time.sleep(7)
+main()
 
 gpio.cleanup()
 sys.exit()
