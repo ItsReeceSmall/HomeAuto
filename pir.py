@@ -10,5 +10,3 @@ def getPir(pirPin, pirLight):
   if i == 1:
     print('- Activity Detected: Lights ON')
     gpio.output(pirLight, gpio.HIGH) # Turns on light
-  time.sleep(0.05)
-  return i
