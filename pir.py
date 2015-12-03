@@ -63,7 +63,7 @@ gpio.setup(pirPin, gpio.IN)
 gpio.setup(pirLight, gpio.OUT)
 
 while True:
-  i == 0
+  i = 0
   main(i)
   if i == 1:
     time.sleep(7)
