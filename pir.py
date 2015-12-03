@@ -6,7 +6,7 @@ def getPir(pirPin, pirLight):
   i = gpio.input(pirPin)
   if i == 0:
     print('- Activity Undetected: Lights OFF')
-    gpio.output(pirLight, gpio.LOW) # Turns off light
+    gpio.output(pirLight, gpio.HIGH) # Turns off light
   if i == 1:
     print('- Activity Detected: Lights ON')
-    gpio.output(pirLight, gpio.HIGH) # Turns on light
+    gpio.output(pirLight, gpio.LOW) # Turns on light
