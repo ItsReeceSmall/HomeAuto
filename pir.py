@@ -27,7 +27,7 @@ def main():
     program(pirPin, pirLight, trigL, echoL, trigR, echoR)
 
 def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
-  threading.Timer(5, getPir(pirPin, pirLight)).start()
+  threading.Timer(1, getPir(pirPin, pirLight)).start()
   outDist = getDist(trigL, echoL)
   print (outDist)
   time.sleep(1)
