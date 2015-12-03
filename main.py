@@ -29,7 +29,7 @@ def main():
     program(pirPin, pirLight, trigL, echoL, trigR, echoR)
 
 def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
-  threading.Thread(pir.getPir(pirPin, pirLight)).start()
+  pir.getPir(pirPin, pirLight)
   outDist = dist.getDist(trigL, echoL)
   print (outDist)
   time.sleep(1)
