@@ -2,10 +2,10 @@ import RPi.GPIO as gpio
 import time, sys, os, glob, threading, datetime
 
 def getPir(pirState, pirPin, pirLight):
-  
-  print('Checking for PIR activity. . .')
   if pirState == 1:
+    print('- Light remaining on for 10 seconds')
     time.sleep(10)
+  print('Checking for PIR activity. . .')
   pirState = gpio.input(pirPin)
   if pirState == 0:
     print('- Activity Undetected: Lights OFF')
