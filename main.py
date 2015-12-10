@@ -31,10 +31,8 @@ def main():
 def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
   pirState = 0
   while True:
-    #threading.Thread(
-    state = pir.getPir(pirState, pirPin, pirLight)
+    threading.Timer(10, state = pir.getPir(pirState, pirPin, pirLight).start()
     pirState = state
-    #).start()
     outDist = dist.getDist(trigL, echoL)
     print (outDist)
     time.sleep(1)
