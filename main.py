@@ -26,8 +26,9 @@ def main():
   gpio.setup(pirPin, gpio.IN)
   gpio.setup(pirLight, gpio.OUT)
   program(pirPin, pirLight, trigL, echoL, trigR, echoR)
+  # variable setup
 
-def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
+def program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR):
   threading.Thread(state = pir.getPir(pirPin, pirLight)).start()
   outDist = dist.getDist(trigL, echoL)
   print (outDist)
