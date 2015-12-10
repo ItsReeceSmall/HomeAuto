@@ -28,8 +28,7 @@ def main():
   program(pirPin, pirLight, trigL, echoL, trigR, echoR)
 
 def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
-  print('calling pir to get light detection')
-  threading.Thread(pir.getPir(pirPin, pirLight)).start()
+  threading.Thread(state = pir.getPir(pirPin, pirLight)).start()
   outDist = dist.getDist(trigL, echoL)
   print (outDist)
   time.sleep(1)
