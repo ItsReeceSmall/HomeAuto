@@ -27,7 +27,8 @@ def main():
   gpio.setup(pirLight, gpio.OUT)
   # variable setup
   pirState = 0
-  program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR)
+  while True:
+    program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR)
 
 def program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR):
   #threading.Thread(
