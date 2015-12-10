@@ -25,9 +25,9 @@ def main():
   # Pin Setup
   gpio.setup(pirPin, gpio.IN)
   gpio.setup(pirLight, gpio.OUT)
-  program(pirPin, pirLight, trigL, echoL, trigR, echoR)
   # variable setup
   pirState = 0
+  program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR)
 
 def program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR):
   threading.Thread(state = pir.getPir(pirState, pirPin, pirLight)).start()
