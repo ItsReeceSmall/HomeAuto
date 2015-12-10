@@ -33,6 +33,7 @@ def main():
 def program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR):
   #threading.Thread(
   pir.getPir(pirState, pirPin, pirLight)
+  print(pirState)
   #).start()
   outDist = dist.getDist(trigL, echoL)
   print (outDist)
