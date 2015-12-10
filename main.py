@@ -25,11 +25,11 @@ def main():
   # Pin Setup
   gpio.setup(pirPin, gpio.IN)
   gpio.setup(pirLight, gpio.OUT)
-  while True:
-    program(pirPin, pirLight, trigL, echoL, trigR, echoR)
+  program(pirPin, pirLight, trigL, echoL, trigR, echoR)
 
 def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
-  pir.getPir(pirPin, pirLight)
+  print('calling pir to get light detection')
+  threading.Thread(pir.getPir(pirPin, pirLight)).start()
   outDist = dist.getDist(trigL, echoL)
   print (outDist)
   time.sleep(1)
