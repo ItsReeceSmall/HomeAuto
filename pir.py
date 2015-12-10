@@ -4,7 +4,7 @@ import time, sys, os, glob, threading, datetime
 def getPir(pirState, pirPin, pirLight):
   
   print('Checking for PIR activity. . .')
-  if pirState = 1:
+  if pirState == 1:
     tiem.sleep(10)
   i = gpio.input(pirPin)
   if i == 0:
