@@ -26,20 +26,20 @@ def main():
   gpio.setup(pirPin, gpio.IN)
   gpio.setup(pirLight, gpio.OUT)
   # variable setup
+  program(pirPin, pirLight, trigL, echoL, trigR, echoR)
+
+def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
   pirState = 0
   while True:
-    program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR)
-
-def program(pirState, pirPin, pirLight, trigL, echoL, trigR, echoR):
-  #threading.Thread(
-  state = pir.getPir(pirState, pirPin, pirLight)
-  pirState = state
-  #).start()
-  outDist = dist.getDist(trigL, echoL)
-  print (outDist)
-  time.sleep(1)
-  inDist = dist.getDist(trigR, echoR)
-  print (inDist)
+    #threading.Thread(
+    state = pir.getPir(pirState, pirPin, pirLight)
+    pirState = state
+    #).start()
+    outDist = dist.getDist(trigL, echoL)
+    print (outDist)
+    time.sleep(1)
+    inDist = dist.getDist(trigR, echoR)
+    print (inDist)
   
 main()
 
