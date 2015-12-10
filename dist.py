@@ -1,5 +1,5 @@
 import RPi.GPIO as gpio
-import time, sys, os, glob, threading, datetime
+import time, sys, os, glob, threading
 
 def getDist(TRIG, ECHO):
     #This is a pre written method which checks an ultrasonic sensor that is connected to the pi
