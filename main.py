@@ -2,15 +2,8 @@ import RPi.GPIO as gpio
 import time, sys, os, glob, threading, datetime
 import pir
 import dist
-#import temp
-'''
-os.system('modprobe w1-gpio')
-os.system('modprobe w1-therm')
+import temp
 
-base_dir = '/sys/bus/w1/devices/'
-device_folder = golb.glob(base_dir + '28*')[0]
-device_file = device_folder + '/w1-slave'
-'''
 # Methods
 def main():
   # Board setup    
