@@ -30,6 +30,7 @@ def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
     time.sleep(2)
     threading.Thread(target=dist.getDist, args=(trigR, echoR,)).start()
     time.sleep(2)
+    print(temp.read_temp())
   
 main()
 
