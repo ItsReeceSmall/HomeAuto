@@ -33,9 +33,9 @@ def program(pirPin, pirLight, trigL, echoL, trigR, echoR):
   while True:
     state = pir.getPir(pirState, pirPin, pirLight)
     pirState = state
-    threading.Thread(2, dist.getDist(trigL, echoL)).start()
+    threading.Timer(2, dist.getDist(trigL, echoL)).start()
     time.sleep(3.333)
-    threading.Thread(2, dist.getDist(trigR, echoR)).start()
+    threading.Timer(2, dist.getDist(trigR, echoR)).start()
   
 main()
 
