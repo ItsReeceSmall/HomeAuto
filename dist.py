@@ -22,6 +22,7 @@ def getDist(TRIG, ECHO):
     print ("Distance: " + str(distance) + "cm")
     return distance
 
+gpio.setmode(gpio.BOARD)
 TRIG = 36
 ECHO = 38
 val =  getDist(TRIG, ECHO)
