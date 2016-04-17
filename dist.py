@@ -21,3 +21,8 @@ def getDist(TRIG, ECHO):
     distance = round(distance, 2)
     print ("Distance: " + str(distance) + "cm")
     return distance
+
+TRIG = 36
+ECHO = 38
+val =  getDist(TRIG, ECHO)
+print (val)
